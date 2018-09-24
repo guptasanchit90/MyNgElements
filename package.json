@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "package": "cat dist/myNgElements/{runtime,polyfills,scripts,main}.js| gzip > dist/myNgElements.js.gz",
+    "package": "cat dist/myNgElements/{runtime,polyfills,scripts,main}.js| gzip > public/myNgElements.js.gz",
     "serve": "http-server --gzip"
   },
   "private": true,

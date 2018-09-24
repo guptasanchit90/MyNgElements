@@ -34,5 +34,5 @@ Run `npm run build && npm run package` to build the project and generate single 
 
 ## Build script changes
 - "build": "ng build --prod --output-hashing=none",
-- "package": "cat dist/myNgElements/{runtime,polyfills,scripts,main}.js | gzip > dist/myNgElements.js.gz",
+- "package": "cat dist/myNgElements/{runtime,polyfills,scripts,main}.js | gzip > public/myNgElements.js.gz",
 - "serve": "http-server --gzip"
