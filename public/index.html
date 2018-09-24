@@ -8,12 +8,31 @@
 </head>
 
 <body>
-    <app-about-me label="First Value"></app-about-me>
+    <app-about-me data='{
+        "name":"Sanchit", 
+        "role":"Full stack developer",
+         "image":"./icon.ico",
+         "email":"gupta.sanchit90@gmail.com",
+         "contact":[
+        {
+            "title":"LinkedIn",
+            "link":"https://www.linkedin.com/in/guptasanchit90/"
+        },
+        {
+            "title":"StackOverflow",
+            "link":"https://stackoverflow.com/users/4149453/sanchit-gupta?tab=profile"
+        },
+        {
+             "title":"Github",
+             "link":"https://github.com/guptasanchit90"
+        }
+         ]
+        }'></app-about-me>
 
     <script>
         const button = document.querySelector('app-about-me');
-        button.addEventListener('action', (event) => {
-            console.log(`"action" emitted: ${event.detail}`);
+        button.addEventListener('eventOut', (event) => {
+            console.log(`"action" emitted`);
         })
         setTimeout(() => button.label = 'Second Value', 3000);
     </script>

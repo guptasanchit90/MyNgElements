@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -7,6 +7,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Native
 })
 export class AboutMeComponent implements OnInit {
+  _data: any;
+
+  @Input()
+  set data(data: any) {
+    this._data = JSON.parse(data);
+  }
+  get data(): any { return this._data; }
+
+  @Output()
+  eventOut = new EventEmitter();
 
   constructor() { }
 

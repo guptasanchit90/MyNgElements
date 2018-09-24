@@ -1,3 +1,21 @@
-<p>
-  about-me works!
-</p>
+<div class="main">
+  <div class="header">
+    <img *ngIf="data.image" [src]="data.image">
+    <div class="details" (click)="eventOut.next($event)">
+      <span class="name">{{data.name}}</span>
+      <br>
+      <span class="role">{{data.role}}</span>
+    </div>
+    <br>
+    <a class="email" *ngIf="data.email" href="mailto:{{data.email}}">{{data.email}}</a>
+  </div>
+  <div *ngIf="data.contact" class="contact">
+    <ul>
+      <li *ngFor="let contact of data.contact">
+        <a href="{{contact.link}}" target="_blank">
+          <span class="contact-item">{{contact.title}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
