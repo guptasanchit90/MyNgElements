@@ -1,27 +1,38 @@
 # MyNgElements
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+Working with Angular Elements
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run serve` for a dev server. Navigate to `http://localhost:8080/`. This will load a static HTML with created components
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Run `ng g component component-name -v Native` to generate a new component.
+- Registering component in NgModule by adding following code
+```
+ constructor(private injector: Injector) {
+    const componentName = createCustomElement(ComponentName, { injector });
+    customElements.define('component-name', componentName);
+  }
 
-## Build
+  ngDoBootstrap() {}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Build and package
 
-## Running unit tests
+Run `npm run build && npm run package` to build the project and generate single element.js file. The generated element.js.gz will be stored in the `./` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Steps to create project
+- `ng new myNgElements`
+- `cd myNgElements`
+- `ng add @angular/elements`
+- Remove `app.component.*`
 
-## Running end-to-end tests
+## Added dependencies
+- `npm i -D http-server` - Running HTTP server for demo
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Build script changes
+- "build": "ng build --prod --output-hashing=none",
+- "package": "cat dist/myNgElements/{runtime,polyfills,scripts,main}.js | gzip > dist/myNgElements.js.gz",
+- "serve": "http-server --gzip"

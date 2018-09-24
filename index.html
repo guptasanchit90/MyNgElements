@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Button Test Page</title>
+    <script src="dist/myNgElements.js"></script>
+</head>
+
+<body>
+    <app-about-me label="First Value"></app-about-me>
+
+    <script>
+        const button = document.querySelector('app-about-me');
+        button.addEventListener('action', (event) => {
+            console.log(`"action" emitted: ${event.detail}`);
+        })
+        setTimeout(() => button.label = 'Second Value', 3000);
+    </script>
+</body>
+
+</html>
